@@ -84,7 +84,13 @@ pip install -r requirements.txt
 ### 2. Run with the command line
 
 ```bash
-python src/main.py --old sample_data/old_bom.csv --new sample_data/new_bom.csv --output output_examples/delta_report.xlsx
+python src/main.py sample_data/old_bom.csv sample_data/new_bom.csv output_examples/delta_report.xlsx
+```
+
+To generate only changed rows:
+
+```bash
+python src/main.py sample_data/old_bom.csv sample_data/new_bom.csv output_examples/delta_report.xlsx --changes-only
 ```
 
 ### 3. Run with the desktop interface
@@ -93,7 +99,7 @@ python src/main.py --old sample_data/old_bom.csv --new sample_data/new_bom.csv -
 python src/gui.py
 ```
 
-The interface allows selecting the old file, the new file, and the output path before generating the report.
+The interface allows selecting the baseline file, the revised file, and the output path before generating the report.
 
 ---
 
