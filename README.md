@@ -1,39 +1,51 @@
-# Engineering BOM Comparison Tool
+# 🏭 Engineering BOM Comparison Tool
 
 **Public demo – Engineering Automation / Python / Excel Reporting**
 
 This repository contains a **safe public demo** of an engineering automation tool designed to compare structured BOM-like spreadsheets and generate a technical delta report.
 
-The original professional work that inspired this project was developed in an industrial engineering context. This public repository is **not** the production tool. It is a simplified, rebuilt-from-scratch implementation using fictional data, generic field names, and non-proprietary business rules.
+The professional work that inspired this project was developed in an industrial engineering context. This public repository is **not** the production tool. It is a simplified, rebuilt-from-scratch implementation using fictional data, generic field names, and non-proprietary business rules.
 
 ---
 
-## Why this project exists
+## 📌 Why this project exists
 
 Engineering teams often need to compare structured technical lists across revisions. When this is done manually, the work can become slow, repetitive, and error-prone.
 
 This demo shows how that workflow can be transformed into a small automation system that:
 
-- loads two structured files;
-- compares items by `code`;
-- classifies each item as `Added`, `Removed`, `Modified`, or `Unchanged`;
-- generates a formatted Excel report;
-- uses colors to make the output easier to review.
+- 📥 loads two structured files;
+- 🔎 compares items by `code`;
+- 🧩 classifies each item as `Added`, `Removed`, `Modified`, or `Unchanged`;
+- 📊 generates a formatted Excel report;
+- 🎨 uses colors to make the output easier to review.
 
 ---
 
-## Status classification
+## 🖼️ Screenshots
+
+### Desktop interface
+
+![Desktop interface](screenshots/app_interface.png)
+
+### Generated Excel report
+
+![Generated Excel report](screenshots/delta_report.png)
+
+---
+
+## ✅ Status classification
 
 | Status | Meaning | Report color |
 |---|---|---|
-| Added | Code exists only in the new file | Green |
-| Removed | Code exists only in the old file | Red |
-| Modified | Code exists in both files, but one or more fields changed | Yellow |
-| Unchanged | Code exists in both files and all compared fields are equal | Blue |
+| 🟢 Added | Code exists only in the new file | Green |
+| 🔴 Removed | Code exists only in the old file | Red |
+| 🟡 Modified | Code exists in both files, but one or more fields changed | Yellow |
+| 🔵 Unchanged | Code exists in both files and all compared fields are equal | Blue |
 
 ---
 
-## Demo scope
+## 🧪 Demo scope
 
 This public version compares generic CSV files with the following columns:
 
@@ -48,7 +60,7 @@ The comparison is intentionally generic and can be adapted to many structured en
 
 ---
 
-## Repository structure
+## 📂 Repository structure
 
 ```text
 .
@@ -67,13 +79,16 @@ The comparison is intentionally generic and can be adapted to many structured en
 ├── docs/
 │   ├── confidentiality.md
 │   └── public-demo-scope.md
+├── screenshots/
+│   ├── app_interface.png
+│   └── delta_report.png
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## How to run
+## 🚀 How to run
 
 ### 1. Install dependencies
 
@@ -103,7 +118,7 @@ The interface allows selecting the baseline file, the revised file, and the outp
 
 ---
 
-## Example output
+## 📊 Example output
 
 The generated Excel workbook contains:
 
@@ -113,7 +128,7 @@ The generated Excel workbook contains:
 
 ---
 
-## Professional relevance
+## 💼 Professional relevance
 
 This project demonstrates skills in:
 
@@ -129,7 +144,7 @@ It reflects the kind of work I enjoy building: practical software that reduces r
 
 ---
 
-## Confidentiality notice
+## 🔒 Confidentiality notice
 
 This repository does **not** include:
 
