@@ -1,107 +1,138 @@
-# 🏭 Manufacturing BOM Comparison Tool
+# Engineering BOM Comparison Tool
 
-**Case Study – Engineering Automation (NDA-Safe)**
+**Public demo – Engineering Automation / Python / Excel Reporting**
 
----
+This repository contains a **safe public demo** of an engineering automation tool designed to compare structured BOM-like spreadsheets and generate a technical delta report.
 
-## 📌 Overview
-
-This repository presents a **technical case study** of an internal engineering automation tool designed to compare and validate complex Bills of Materials (BOMs) in a manufacturing environment.
-
-The original solution was developed to replace a highly manual, time-consuming, and error-prone workflow based on spreadsheet inspection.
-
-> ⚠️ **Important Notice**  
-> This repository is intentionally shared as a **case study only**.  
-> No source code, proprietary algorithms, or production logic are included, as the original implementation was developed under an active employment and confidentiality agreement.
+The original professional work that inspired this project was developed in an industrial engineering context. This public repository is **not** the production tool. It is a simplified, rebuilt-from-scratch implementation using fictional data, generic field names, and non-proprietary business rules.
 
 ---
 
-## 🚩 Problem
+## Why this project exists
 
-Engineering teams were required to:
-- Compare large BOM spreadsheets containing hundreds or thousands of entries
-- Identify additions, removals, and mismatches
-- Validate data consistency before releasing changes to production
+Engineering teams often need to compare structured technical lists across revisions. When this is done manually, the work can become slow, repetitive, and error-prone.
 
-### Before automation:
-- ⏱️ Approximately **5 days** of manual analysis per comparison
-- ❌ High risk of human error
-- 🧠 Significant cognitive load on engineers
-- 🔄 Slow iteration and validation cycles
+This demo shows how that workflow can be transformed into a small automation system that:
 
----
-
-## ✅ Solution (Conceptual)
-
-I designed and implemented an **automation-based approach** that:
-- Processes structured BOM data programmatically
-- Compares different BOM versions logically
-- Highlights inconsistencies in a clear and actionable way
-- Produces outputs optimized for engineering decision-making
-
-The solution was designed with a focus on:
-- Reliability and clarity over complexity
-- Minimal onboarding requirements
-- Fast interpretation of results by engineers
+- loads two structured files;
+- compares items by `code`;
+- classifies each item as `Added`, `Removed`, `Modified`, or `Unchanged`;
+- generates a formatted Excel report;
+- uses colors to make the output easier to review.
 
 ---
 
-## 📈 Impact
+## Status classification
 
-- ⏳ Reduced analysis time from **~5 days to 2–3 hours**
-- 🏭 Tool adopted for **daily use** in a production engineering environment
-- ✅ Significant reduction in manual errors
-- 🔁 Faster validation and feedback cycles across teams
-
----
-
-## 🧠 My Role
-
-- Sole developer
-- System design and architecture
-- Definition of comparison logic and workflows
-- Iterative improvements based on real user feedback
-- Use of AI-assisted development to accelerate implementation while retaining full ownership of technical decisions
+| Status | Meaning | Report color |
+|---|---|---|
+| Added | Code exists only in the new file | Green |
+| Removed | Code exists only in the old file | Red |
+| Modified | Code exists in both files, but one or more fields changed | Yellow |
+| Unchanged | Code exists in both files and all compared fields are equal | Blue |
 
 ---
 
-## 🧰 Tech Stack (Production)
+## Demo scope
 
-> Listed for contextual understanding only.
+This public version compares generic CSV files with the following columns:
 
-- **Python**
-- Spreadsheet-based data processing
-- Automation-oriented architecture
+- `code`
+- `description`
+- `quantity`
+- `unit`
+- `revision`
+- `notes`
 
----
-
-## 📂 Repository Contents
-
-This repository includes:
-- 📄 Documentation describing the problem and solution approach
-- 🖼️ Screenshots illustrating the tool in operation (with all sensitive data removed)
-- 📊 Mocked input/output examples demonstrating the expected workflow
-
-No executable code is intentionally provided.
+The comparison is intentionally generic and can be adapted to many structured engineering workflows.
 
 ---
 
-## 🔒 Legal & Confidentiality
+## Repository structure
 
-- No production code is shared
-- No proprietary algorithms are disclosed
-- No real datasets are included
-- No company, client, or internal identifiers appear
-
-This repository complies with confidentiality obligations and is intended solely for **professional portfolio and educational demonstration purposes**.
+```text
+.
+├── src/
+│   ├── main.py                 # CLI entry point
+│   ├── gui.py                  # Simple desktop interface
+│   ├── bom_loader.py           # CSV loading and validation
+│   ├── comparison_engine.py    # Comparison rules
+│   ├── report_generator.py     # Excel report generation
+│   └── models.py               # Shared constants and data structures
+├── sample_data/
+│   ├── old_bom.csv
+│   └── new_bom.csv
+├── output_examples/
+│   └── README.md
+├── docs/
+│   ├── confidentiality.md
+│   └── public-demo-scope.md
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-## 🧭 Why This Case Study Matters
+## How to run
 
-This project demonstrates my ability to:
-- Analyze complex engineering workflows
-- Design automation strategies for real-world problems
-- Deliver production-grade internal tools
-- Reduce multi-day manual processes to hours
-- Balance technical delivery with professional and legal responsibility
+### 1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run with the command line
+
+```bash
+python src/main.py --old sample_data/old_bom.csv --new sample_data/new_bom.csv --output output_examples/delta_report.xlsx
+```
+
+### 3. Run with the desktop interface
+
+```bash
+python src/gui.py
+```
+
+The interface allows selecting the old file, the new file, and the output path before generating the report.
+
+---
+
+## Example output
+
+The generated Excel workbook contains:
+
+- a `Summary` sheet with totals by status;
+- a `Delta Report` sheet with row-level comparison results;
+- color-coded status cells for quick visual review.
+
+---
+
+## Professional relevance
+
+This project demonstrates skills in:
+
+- engineering automation;
+- structured data comparison;
+- Python development;
+- Excel report generation;
+- process improvement;
+- desktop tooling;
+- workflow-oriented software design.
+
+It reflects the kind of work I enjoy building: practical software that reduces repetitive engineering effort and improves consistency in technical workflows.
+
+---
+
+## Confidentiality notice
+
+This repository does **not** include:
+
+- production source code;
+- proprietary algorithms;
+- real datasets;
+- internal company files;
+- client information;
+- confidential business rules;
+- private naming conventions.
+
+All sample data is fictional. All logic was rebuilt from scratch for public demonstration purposes.
