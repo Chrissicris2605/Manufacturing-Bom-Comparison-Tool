@@ -22,6 +22,18 @@ This demo shows how that workflow can be transformed into a small automation sys
 
 ---
 
+## 🖼️ Screenshots
+
+### Desktop interface
+
+![Desktop interface](screenshots/app_interface.png)
+
+### Generated Excel report
+
+![Generated Excel report](screenshots/delta_report.png)
+
+---
+
 ## ✅ Status classification
 
 | Status | Meaning | Report color |
@@ -67,6 +79,9 @@ The comparison is intentionally generic and can be adapted to many structured en
 ├── docs/
 │   ├── confidentiality.md
 │   └── public-demo-scope.md
+├── screenshots/
+│   ├── app_interface.png
+│   └── delta_report.png
 ├── requirements.txt
 └── README.md
 ```
